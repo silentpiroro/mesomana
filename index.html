@@ -34,20 +34,40 @@
         <div class="filters">
             <select>
                 <option value="">Size</option>
-                <!-- Add sizes -->
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
             </select>
             <select>
                 <option value="">Color</option>
-                <!-- Add colors -->
+                <option value="Red">Red</option>
+                <option value="Blue">Blue</option>
+                <option value="Green">Green</option>
+                <option value="Black">Black</option>
             </select>
             <select>
                 <option value="">Price</option>
-                <!-- Add price ranges -->
+                <option value="Low">$0 - $50</option>
+                <option value="Medium">$51 - $100</option>
+                <option value="High">$101 - $200</option>
             </select>
         </div>
         <!-- Display fashion items -->
         <div class="items-grid">
-            <!-- Add clothing items -->
+            <div data-size="M" data-color="Red" data-price="Low">
+                <img src="red-shirt.jpg" alt="Red Shirt">
+                <p>Red Shirt - $30</p>
+            </div>
+            <div data-size="L" data-color="Blue" data-price="Medium">
+                <img src="blue-jeans.jpg" alt="Blue Jeans">
+                <p>Blue Jeans - $75</p>
+            </div>
+            <div data-size="S" data-color="Green" data-price="High">
+                <img src="green-jacket.jpg" alt="Green Jacket">
+                <p>Green Jacket - $150</p>
+            </div>
+            <!-- Add more clothing items as needed -->
         </div>
     </section>
 
@@ -55,7 +75,27 @@
     <section id="restaurant-cafe" class="section">
         <h2>Restaurant & Cafe</h2>
         <div class="menu">
-            <!-- Add menu items with images and special offers -->
+            <div>
+                <img src="pasta.jpg" alt="Pasta">
+                <p>Pasta - $12</p>
+            </div>
+            <div>
+                <img src="burger.jpg" alt="Burger">
+                <p>Burger - $10</p>
+            </div>
+            <div>
+                <img src="salad.jpg" alt="Salad">
+                <p>Salad - $8</p>
+            </div>
+            <div>
+                <img src="coffee.jpg" alt="Coffee">
+                <p>Coffee - $4</p>
+            </div>
+            <div>
+                <img src="cake.jpg" alt="Cake">
+                <p>Cake - $6</p>
+            </div>
+            <!-- Add more menu items as needed -->
         </div>
     </section>
 
@@ -63,7 +103,27 @@
     <section id="small-commodities" class="section">
         <h2>Small Commodities</h2>
         <div class="items-grid">
-            <!-- Add small household items, gadgets, accessories -->
+            <div>
+                <img src="notebook.jpg" alt="Notebook">
+                <p>Notebook - $5</p>
+            </div>
+            <div>
+                <img src="pen.jpg" alt="Pen">
+                <p>Pen - $2</p>
+            </div>
+            <div>
+                <img src="mug.jpg" alt="Mug">
+                <p>Mug - $8</p>
+            </div>
+            <div>
+                <img src="keyboard.jpg" alt="Keyboard">
+                <p>Keyboard - $20</p>
+            </div>
+            <div>
+                <img src="headphones.jpg" alt="Headphones">
+                <p>Headphones - $25</p>
+            </div>
+            <!-- Add more small commodities as needed -->
         </div>
     </section>
 
@@ -71,17 +131,29 @@
     <section id="design-section" class="section">
         <h2>Design Section</h2>
         <div class="customization-options">
-            <!-- Add interactive customization options -->
+            <p>Choose a product to customize:</p>
+            <button>Customize T-Shirt</button>
+            <button>Customize Mug</button>
+            <!-- Add more customization options as needed -->
         </div>
         <div class="portfolio">
-            <!-- Add portfolio of past projects -->
+            <h3>Past Projects</h3>
+            <div>
+                <img src="project1.jpg" alt="Project 1">
+                <p>Project 1: Custom T-Shirts for XYZ Company</p>
+            </div>
+            <div>
+                <img src="project2.jpg" alt="Project 2">
+                <p>Project 2: Branded Mugs for ABC Cafe</p>
+            </div>
+            <!-- Add more portfolio items as needed -->
         </div>
     </section>
 
     <!-- About Us -->
     <section id="about-us" class="section">
         <h2>About Us</h2>
-        <p>Our story, mission, and values rooted in Southern Africa.</p>
+        <p>Mesomana was founded with the mission to bring high-quality, affordable products to the Southern African market. Our story began in South Africa, where we saw a need for a store that offers a diverse range of items, from clothing to home goods. Our values are rooted in community, sustainability, and customer satisfaction.</p>
     </section>
 
     <!-- Contact -->
@@ -94,10 +166,15 @@
             <button type="submit">Send</button>
         </form>
         <div class="store-locations">
-            <!-- Add store locations -->
+            <h3>Store Locations</h3>
+            <p>123 Main Street, Johannesburg, South Africa</p>
+            <p>456 Another Street, Cape Town, South Africa</p>
+            <!-- Add more store locations as needed -->
         </div>
         <div class="customer-service">
-            <!-- Add customer service information -->
+            <h3>Customer Service</h3>
+            <p>Email: support@mesomana.com</p>
+            <p>Phone: +27 123 456 7890</p>
         </div>
     </section>
 
