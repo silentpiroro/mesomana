@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroSection = document.getElementById('hero');
     const hamburger = document.getElementById('hamburger');
     const navUl = document.getElementById('nav-ul');
+    const dropdowns = document.querySelectorAll('.dropdown');
 
     // Header background change on scroll
     window.addEventListener('scroll', () => {
@@ -18,12 +19,23 @@ document.addEventListener('DOMContentLoaded', function() {
         navUl.classList.toggle('show');
     });
 
+    // Dropdown menu toggle for mobile
+    dropdowns.forEach(dropdown => {
+        dropdown.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+            }
+        });
+    });
+
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
 
             navUl.classList.remove('show');
+            dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
 
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
