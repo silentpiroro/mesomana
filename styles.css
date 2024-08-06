@@ -7,6 +7,10 @@
     --sa-white: #FFFFFF;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -35,6 +39,11 @@ header .logo {
     font-weight: 700;
 }
 
+nav {
+    display: flex;
+    justify-content: center;
+}
+
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -59,6 +68,15 @@ nav ul li a i {
 
 nav ul li a:hover {
     color: var(--sa-yellow);
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--sa-white);
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 #hero {
@@ -149,6 +167,21 @@ section h2 i {
     margin-right: 0.5rem;
 }
 
+.section-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.section-image {
+    width: 50%;
+    max-width: 300px;
+    height: auto;
+    margin-right: 2rem;
+    border-radius: 10px;
+}
+
+#about { background-color: var(--sa-blue); }
 #clothing { background-color: var(--sa-yellow); color: var(--sa-black); }
 #apparel { background-color: var(--sa-green); }
 #commodities { background-color: var(--sa-red); }
@@ -205,5 +238,65 @@ footer {
     }
     100% {
         background-position: 0% 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    .nav-ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 1rem 0;
+    }
+
+    .hamburger {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .section-content {
+        flex-direction: column;
+    }
+
+    .section-image {
+        width: 100%;
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    footer {
+        flex-direction: column;
+    }
+
+    .social-icons {
+        margin-top: 1rem;
     }
 }
