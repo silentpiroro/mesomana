@@ -16,12 +16,18 @@
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-ul" id="nav-ul">
-                <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
                 <li><a href="#clothing"><i class="fas fa-tshirt"></i> Clothing Brand</a></li>
                 <li><a href="#apparel"><i class="fas fa-store"></i> Apparel Sales</a></li>
                 <li><a href="#commodities"><i class="fas fa-shopping-basket"></i> Small Commodities</a></li>
                 <li><a href="#design"><i class="fas fa-paint-brush"></i> Design & Customization</a></li>
                 <li><a href="#restaurant"><i class="fas fa-utensils"></i> Restaurant & Cafe</a></li>
+                <li class="dropdown">
+                    <a href="#about"><i class="fas fa-info-circle"></i> About Us <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#what-we-do">What We Do</a></li>
+                        <li><a href="#investors">Investors</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
@@ -30,20 +36,12 @@
         <div class="hero-content">
             <h1 class="hero-title">Meso Mana</h1>
             <p class="hero-subtitle">Your one-stop shop for clothing, commodities, and cuisine</p>
-            <a href="#about" class="cta-button"><i class="fas fa-shopping-cart"></i> Explore Now</a>
+            <a href="#clothing" class="cta-button"><i class="fas fa-shopping-cart"></i> Explore Now</a>
         </div>
         <div class="hero-background"></div>
     </section>
 
     <main>
-        <section id="about">
-            <h2><i class="fas fa-info-circle"></i> About Us</h2>
-            <div class="section-content">
-                <img src="about-us-image.jpg" alt="About Meso Mana" class="section-image">
-                <p>Meso Mana is a multi-variety retail business that combines the best of Ikea, Miniso, and Uniqlo models. We offer a unique shopping experience with our diverse range of products and services.</p>
-            </div>
-        </section>
-
         <section id="clothing">
             <h2><i class="fas fa-tshirt"></i> Clothing Brand</h2>
             <div class="section-content">
@@ -81,6 +79,27 @@
             <div class="section-content">
                 <img src="restaurant-cafe-image.jpg" alt="Restaurant and Cafe at Meso Mana" class="section-image">
                 <p>Enjoy delicious meals and beverages in our cozy dining area. Take a break from shopping and indulge in our culinary delights.</p>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2><i class="fas fa-info-circle"></i> About Us</h2>
+            <div class="section-content">
+                <img src="about-us-image.jpg" alt="About Meso Mana" class="section-image">
+                <p>Meso Mana is a multi-variety retail business that combines the best of Ikea, Miniso, and Uniqlo models. We offer a unique shopping experience with our diverse range of products and services.</p>
+            </div>
+            
+            <div id="what-we-do">
+                <h3>What We Do</h3>
+                <p>At Meso Mana, we provide a comprehensive retail experience that spans clothing, home goods, and dining. Our innovative approach combines the best aspects of popular retail models to create a unique shopping destination.</p>
+            </div>
+            
+            <div id="investors">
+                <h3>Investors</h3>
+                <p>We're always looking for strategic partners to help us grow and expand our vision. If you're interested in investing in Meso Mana, please download our business plan for more information.</p>
+                <a href="path/to/business-plan.pdf" download class="download-button">
+                    <i class="fas fa-download"></i> Download Business Plan
+                </a>
             </div>
         </section>
     </main>
