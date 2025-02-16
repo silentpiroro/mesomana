@@ -1,118 +1,839 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meso Mana - Multi Variety Retail</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/466959e73f.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesomana - Obsessed with Comfort</title>
+  <style>
+    /* Global Styles */
+    :root {
+      --primary-color: #7FA682; /* Sage Green */
+      --secondary-color: #E5E5E5; /* Soft Cloud Gray */
+      --accent-color: #1B365D; /* Deep Navy */
+      --light-color: #F9F9F9;
+      --dark-color: #333333;
+      --font-primary: 'Proxima Nova', sans-serif;
+      --font-secondary: 'Merriweather', serif;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: var(--font-primary);
+      line-height: 1.6;
+      color: var(--dark-color);
+      background-color: var(--light-color);
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+    }
+    
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    a:hover {
+      color: var(--primary-color);
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .btn:hover {
+      background-color: var(--accent-color);
+      color: white;
+    }
+    
+    .btn.secondary {
+      background-color: transparent;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+    }
+    
+    .btn.secondary:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+    }
+    
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+    
+    .logo span {
+      color: var(--primary-color);
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+    
+    nav a {
+      font-weight: 500;
+      padding: 0.5rem 0;
+      position: relative;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary-color);
+      transition: width 0.3s;
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    
+    .cart-icon {
+      font-size: 1.5rem;
+      position: relative;
+    }
+    
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: var(--primary-color);
+      color: white;
+      font-size: 0.7rem;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 8rem 0 5rem;
+      background-color: var(--secondary-color);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-container {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+    
+    .hero-content {
+      flex: 1;
+      max-width: 600px;
+    }
+    
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--accent-color);
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: var(--dark-color);
+      opacity: 0.8;
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .hero-image {
+      flex: 1;
+      position: relative;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    /* Features Section */
+    .features {
+      padding: 5rem 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--accent-color);
+    }
+    
+    .section-title p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--dark-color);
+      opacity: 0.7;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .feature-card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .feature-card p {
+      color: var(--dark-color);
+      opacity: 0.7;
+    }
+    
+    /* Collections Section */
+    .collections {
+      padding: 5rem 0;
+      background-color: var(--secondary-color);
+    }
+    
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    
+    .collection-card {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 400px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .collection-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .collection-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      padding: 2rem;
+      color: white;
+    }
+    
+    .collection-overlay h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .collection-overlay p {
+      opacity: 0.9;
+      margin-bottom: 1rem;
+    }
+    
+    /* About Section */
+    .about {
+      padding: 5rem 0;
+    }
+    
+    .about-container {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+    
+    .about-image {
+      flex: 1;
+    }
+    
+    .about-image img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .about-content {
+      flex: 1;
+    }
+    
+    .about h2 {
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      margin-bottom: 1.5rem;
+    }
+    
+    .about p {
+      margin-bottom: 1.5rem;
+      color: var(--dark-color);
+      opacity: 0.8;
+    }
+    
+    /* Testimonials Section */
+    .testimonials {
+      padding: 5rem 0;
+      background-color: var(--secondary-color);
+    }
+    
+    .testimonials-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .testimonial-card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 2.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+    }
+    
+    .testimonial-text {
+      font-size: 1.2rem;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      color: var(--dark-color);
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .testimonial-author img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    .author-info h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+    
+    .author-info p {
+      font-size: 0.9rem;
+      color: var(--dark-color);
+      opacity: 0.7;
+    }
+    
+    /* Newsletter Section */
+    .newsletter {
+      padding: 5rem 0;
+      background-color: var(--accent-color);
+      color: white;
+    }
+    
+    .newsletter-container {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .newsletter h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .newsletter p {
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    .newsletter-form {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .newsletter-input {
+      flex: 1;
+      padding: 0.8rem 1rem;
+      border: none;
+      border-radius: 4px 0 0 4px;
+      font-size: 1rem;
+    }
+    
+    .newsletter-btn {
+      padding: 0 1.5rem;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .newsletter-btn:hover {
+      background-color: #6a8d6e;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark-color);
+      color: white;
+      padding: 5rem 0 2rem;
+    }
+    
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    
+    .footer-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-logo span {
+      color: var(--primary-color);
+    }
+    
+    .footer-about p {
+      opacity: 0.7;
+      margin-bottom: 1.5rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--primary-color);
+    }
+    
+    .footer-heading {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .footer-links a {
+      color: white;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    
+    .footer-links a:hover {
+      opacity: 1;
+    }
+    
+    .contact-info li {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .contact-icon {
+      color: var(--primary-color);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .footer-bottom p {
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .hero-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .hero-content {
+        max-width: 100%;
+      }
+      
+      .hero-cta {
+        justify-content: center;
+      }
+      
+      .about-container {
+        flex-direction: column;
+      }
+      
+      .newsletter-form {
+        flex-direction: column;
+      }
+      
+      .newsletter-input {
+        border-radius: 4px;
+        margin-bottom: 1rem;
+      }
+      
+      .newsletter-btn {
+        border-radius: 4px;
+        padding: 0.8rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      nav ul {
+        gap: 1rem;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="logo">Meso Mana</div>
-        <nav>
-            <button class="hamburger" id="hamburger">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-ul" id="nav-ul">
-                <li><a href="#clothing"><i class="fas fa-tshirt"></i> Clothing Brand</a></li>
-                <li><a href="#apparel"><i class="fas fa-store"></i> Apparel Sales</a></li>
-                <li><a href="#commodities"><i class="fas fa-shopping-basket"></i> Small Commodities</a></li>
-                <li><a href="#design"><i class="fas fa-paint-brush"></i> Design & Customization</a></li>
-                <li><a href="#restaurant"><i class="fas fa-utensils"></i> Restaurant & Cafe</a></li>
-                <li class="dropdown">
-                    <a href="#about"><i class="fas fa-info-circle"></i> About Us <i class="fas fa-caret-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#what-we-do">What We Do</a></li>
-                        <li><a href="#investors">Investors</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <a href="#" class="logo">Meso<span>mana</span></a>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#collections">Collections</a></li>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-cta">
+        <a href="#shop" class="btn">Shop Now</a>
+        <a href="#cart" class="cart-icon">
+          <span class="cart-count">0</span>
+          🛒
+        </a>
+      </div>
+    </div>
+  </header>
 
-    <section id="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Meso Mana</h1>
-            <p class="hero-subtitle">Your one-stop shop for clothing, commodities, and cuisine</p>
-            <a href="#clothing" class="cta-button"><i class="fas fa-shopping-cart"></i> Explore Now</a>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <h1>Obsessed with Comfort</h1>
+        <p>Experience unparalleled comfort with Mesomana's premium socks and apparel, designed to elevate your everyday journey.</p>
+        <div class="hero-cta">
+          <a href="#shop" class="btn">Shop Collection</a>
+          <a href="#about" class="btn secondary">Our Story</a>
         </div>
-        <div class="hero-background"></div>
-    </section>
+      </div>
+      <div class="hero-image">
+        <img src="/api/placeholder/600/400" alt="Mesomana premium comfort socks">
+      </div>
+    </div>
+  </section>
 
-    <main>
-        <section id="clothing">
-            <h2><i class="fas fa-tshirt"></i> Clothing Brand</h2>
-            <div class="section-content">
-                <img src="clothing-brand-image.jpg" alt="Meso Mana Clothing Brand" class="section-image">
-                <p>Discover our unique clothing line that combines style and comfort. Our brand offers high-quality, trendy pieces for all occasions.</p>
-            </div>
-        </section>
-
-        <section id="apparel">
-            <h2><i class="fas fa-store"></i> Apparel Sales</h2>
-            <div class="section-content">
-                <img src="apparel-sales-image.jpg" alt="Apparel Sales at Meso Mana" class="section-image">
-                <p>Shop for a wide range of apparel from various brands and designers. Find the perfect outfit for any style and budget.</p>
-            </div>
-        </section>
-
-        <section id="commodities">
-            <h2><i class="fas fa-shopping-basket"></i> Small Commodities</h2>
-            <div class="section-content">
-                <img src="commodities-image.jpg" alt="Small Commodities at Meso Mana" class="section-image">
-                <p>Find everyday essentials and unique items for your home and lifestyle. Our small commodities section offers a diverse range of products to enhance your daily life.</p>
-            </div>
-        </section>
-
-        <section id="design">
-            <h2><i class="fas fa-paint-brush"></i> Design & Customization</h2>
-            <div class="section-content">
-                <img src="design-customization-image.jpg" alt="Design and Customization at Meso Mana" class="section-image">
-                <p>Create personalized products with our custom design services. Let your imagination run wild and bring your ideas to life.</p>
-            </div>
-        </section>
-
-        <section id="restaurant">
-            <h2><i class="fas fa-utensils"></i> Restaurant & Cafe</h2>
-            <div class="section-content">
-                <img src="restaurant-cafe-image.jpg" alt="Restaurant and Cafe at Meso Mana" class="section-image">
-                <p>Enjoy delicious meals and beverages in our cozy dining area. Take a break from shopping and indulge in our culinary delights.</p>
-            </div>
-        </section>
-
-        <section id="about">
-            <h2><i class="fas fa-info-circle"></i> About Us</h2>
-            <div class="section-content">
-                <img src="about-us-image.jpg" alt="About Meso Mana" class="section-image">
-                <p>Meso Mana is a multi-variety retail business that combines the best of Ikea, Miniso, and Uniqlo models. We offer a unique shopping experience with our diverse range of products and services.</p>
-            </div>
-            
-            <div id="what-we-do">
-                <h3>What We Do</h3>
-                <p>At Meso Mana, we provide a comprehensive retail experience that spans clothing, home goods, and dining. Our innovative approach combines the best aspects of popular retail models to create a unique shopping destination.</p>
-            </div>
-            
-            <div id="investors">
-                <h3>Investors</h3>
-                <p>We're always looking for strategic partners to help us grow and expand our vision. If you're interested in investing in Meso Mana, please download our business plan for more information.</p>
-                <a href="path/to/business-plan.pdf" download class="download-button">
-                    <i class="fas fa-download"></i> Download Business Plan
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Meso Mana. All rights reserved.</p>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <div class="section-title">
+        <h2>Why Choose Mesomana</h2>
+        <p>Our commitment to comfort goes beyond the ordinary, with thoughtfully designed products that enhance your daily life.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🌿</div>
+          <h3>Sustainable Materials</h3>
+          <p>Premium eco-friendly fabrics that are gentle on your skin and the planet.</p>
         </div>
-    </footer>
+        <div class="feature-card">
+          <div class="feature-icon">🧠</div>
+          <h3>Thoughtful Design</h3>
+          <p>Ergonomic construction that supports your body's natural movement.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">♻️</div>
+          <h3>Long-lasting Quality</h3>
+          <p>Durable materials and expert craftsmanship for products that stand the test of time.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">❤️</div>
+          <h3>Comfort Guarantee</h3>
+          <p>If it's not the most comfortable piece you own, we'll make it right.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- Collections Section -->
+  <section class="collections" id="collections">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Collections</h2>
+        <p>Discover comfort in every step with our carefully curated collections.</p>
+      </div>
+      <div class="collections-grid">
+        <div class="collection-card">
+          <img src="/api/placeholder/400/500" alt="CloudStep Collection" class="collection-image">
+          <div class="collection-overlay">
+            <h3>CloudStep™ Daily</h3>
+            <p>Your everyday companion for unmatched comfort</p>
+            <a href="#" class="btn">Explore</a>
+          </div>
+        </div>
+        <div class="collection-card">
+          <img src="/api/placeholder/400/500" alt="SoftHorizon Collection" class="collection-image">
+          <div class="collection-overlay">
+            <h3>SoftHorizon™ Wellness</h3>
+            <p>Where comfort meets well-being</p>
+            <a href="#" class="btn">Explore</a>
+          </div>
+        </div>
+        <div class="collection-card">
+          <img src="/api/placeholder/400/500" alt="EcoStep Collection" class="collection-image">
+          <div class="collection-overlay">
+            <h3>EcoStep™ Sustainable</h3>
+            <p>Comfort that cares for our planet</p>
+            <a href="#" class="btn">Explore</a>
+          </div>
+        </div>
+        <div class="collection-card">
+          <img src="/api/placeholder/400/500" alt="SeasonFlow Collection" class="collection-image">
+          <div class="collection-overlay">
+            <h3>SeasonFlow™ Climate</h3>
+            <p>Year-round comfort for every season</p>
+            <a href="#" class="btn">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container about-container">
+      <div class="about-image">
+        <img src="/api/placeholder/600/400" alt="About Mesomana">
+      </div>
+      <div class="about-content">
+        <h2>Our Comfort Story</h2>
+        <p>At Mesomana, we believe that true comfort is the foundation of wellbeing. Our journey began with a simple question: why compromise on comfort in our daily lives?</p>
+        <p>Founded by a team of textile engineers and wellness enthusiasts, we set out to create apparel that truly understands the human body and its need for support, breathability, and gentle embrace.</p>
+        <p>Every Mesomana product is the result of countless hours of research, testing, and refinement - all in pursuit of the perfect comfort experience.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-title">
+        <h2>What Our Customers Say</h2>
+        <p>The comfort speaks for itself - hear from the Mesomana community.</p>
+      </div>
+      <div class="testimonials-container">
+        <div class="testimonial-card">
+          <p class="testimonial-text">"I never knew socks could make such a difference in my day. As someone who stands for 12-hour shifts, these have been life-changing for my feet."</p>
+          <div class="testimonial-author">
+            <img src="/api/placeholder/100/100" alt="Sarah J.">
+            <div class="author-info">
+              <h4>Sarah J.</h4>
+              <p>Nurse Practitioner</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"The attention to detail is remarkable. From the seamless toe to the perfect amount of compression - these aren't just socks, they're an experience."</p>
+          <div class="testimonial-author">
+            <img src="/api/placeholder/100/100" alt="Michael L.">
+            <div class="author-info">
+              <h4>Michael L.</h4>
+              <p>Marathon Runner</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"After trying Mesomana, I've replaced my entire sock drawer. The sustainability aspect makes me feel good, but the comfort is what keeps me coming back."</p>
+          <div class="testimonial-author">
+            <img src="/api/placeholder/100/100" alt="Emma R.">
+            <div class="author-info">
+              <h4>Emma R.</h4>
+              <p>Environmental Consultant</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter">
+    <div class="container newsletter-container">
+      <h2>Join the Comfort Revolution</h2>
+      <p>Subscribe to receive updates on new collections, comfort tips, and exclusive offers.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email address" class="newsletter-input" required>
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-about">
+          <div class="footer-logo">Meso<span>mana</span></div>
+          <p>Premium comfort-focused apparel designed to enhance your everyday journey through thoughtful innovation and sustainable practices.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon">f</a>
+            <a href="#" class="social-icon">i</a>
+            <a href="#" class="social-icon">t</a>
+            <a href="#" class="social-icon">p</a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Collections</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3 class="footer-heading">Collections</h3>
+          <ul>
+            <li><a href="#">CloudStep™ Daily</a></li>
+            <li><a href="#">SoftHorizon™ Wellness</a></li>
+            <li><a href="#">EcoStep™ Sustainable</a></li>
+            <li><a href="#">SeasonFlow™ Climate</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3 class="footer-heading">Contact Us</h3>
+          <ul class="contact-info">
+            <li>
+              <span class="contact-icon">📍</span>
+              <span>123 Comfort Way, Sydney, Australia</span>
+            </li>
+            <li>
+              <span class="contact-icon">📞</span>
+              <span>+61 2 1234 5678</span>
+            </li>
+            <li>
+              <span class="contact-icon">✉️</span>
+              <span>hello@mesomana.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Mesomana. All rights reserved. | Privacy Policy | Terms of Service</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
